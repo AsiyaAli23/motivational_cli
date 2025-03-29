@@ -46,41 +46,6 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Publish to npm
-        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Tests
-        run: npm test
-
-  publish:
-    if: github.event_name == 'release'  # Only run on releases
-    needs: build-test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Set Up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          registry-url: 'https://registry.npmjs.org/'
-
-      - name: Authenticate with npm
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-
-      - name: Publish to npm
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-
-    - name: Publish to NPM
-      run: npm publish --access public
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
