@@ -3,12 +3,12 @@ name: CI/CD for CLI Tool
 on:
   push:
     branches:
-      - main  # Run workflow on push to main
+      - main  # Runs on push to main
   pull_request:
     branches:
-      - main  # Run workflow on PR to main
+      - main  # Runs on PRs to main
   release:
-    types: [created]  # Run workflow on new release creation
+    types: [created]  # Runs when a new release is created
 
 jobs:
   build-test:
@@ -21,6 +21,35 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
+
+  publish:
+    if: github.event_name == 'release'  # Runs only on releases
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 
       - name: Install Dependencies
         run: npm install
