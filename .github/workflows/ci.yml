@@ -1,0 +1,44 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
+
+  release:
+    needs: test
+    if: github.event_name == 'push' && contains(github.ref, 'main')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Package CLI Tool
+        run: |
+          npm pack
+          mkdir release
+          mv *.tgz release/
+
+      - name: Upload CLI Tool as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: cli-tool
+          path: release/
