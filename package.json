@@ -1,5 +1,5 @@
 {
-  "name": "motivational-cli",
+  "name": "motivational-cli-tool",
   "version": "1.0.0",
   "description": "A CLI tool that prints random motivational quotes",
   "main": "index.js",
