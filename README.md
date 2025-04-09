@@ -1,116 +1,125 @@
 # Motivational CLI Tool By Siya
 
-**Motivational CLI Tool By Siya** is a simple Node.js command-line tool that provides random motivational quotes each time it's run. It’s designed to inspire and help boost your motivation!
+**Motivational CLI Tool By Siya** is a simple Node.js command-line tool that provides random motivational quotes each time it's run. It’s designed to inspire and help boost your motivation! 
+This project includes unit tests and a CI/CD pipeline using GitHub Actions.
 
----
+## Features
+- Prints a random motivational quote
+- Simple and lightweight
+- Includes automated tests
+- Uses GitHub Actions for CI/CD
 
-## 🚀 Features:
-- Provides random motivational quotes on the command line.
-- Automated unit testing for reliability.
-- Fully integrated CI/CD pipeline using GitHub Actions.
-- Automatically published to npm on each release.
-
----
-
-## 🔧 Technologies Used:
-- **Node.js** – Core technology for building the tool.
-- **JavaScript** – Language for logic implementation.
-- **Jest** – Unit testing framework for ensuring code quality.
-- **GitHub Actions** – CI/CD pipeline for automation.
-- **npm** – Used for publishing and managing the package.
-- **Git & GitHub** – For version control and source code management.
-
----
-
-## 🛠️ How to Use
-
-### Prerequisites
-To use the Motivational CLI Tool By Siya, you need the following:
-
-
-- **Node.js**: Make sure Node.js is installed on your machine. If not, download it from [here](https://nodejs.org/).
-
-- **npm**: npm (Node Package Manager) is included with Node.js, but you can update it if necessary by running:
-
-  ```bash
-  npm install -g npm
-Prerequisites
+## Prerequisites
 Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (version 18 or later)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+- [Git](https://git-scm.com/)
 
-Node.js (version 18 or later)
-npm (Node Package Manager)
-Git
-Installation and Usage
-1. Clone the Repository
+---
+
+## Installation and Usage
+
+### 1. Clone the Repository
+```sh
 git clone https://github.com/AsiyaAli23/motivational-cli.git
 cd motivational-cli
-2. Install Dependencies
+```
+
+### 2. Install Dependencies
+```sh
 npm install
-3. Run the CLI Tool Locally
+```
+
+### 3. Run the CLI Tool Locally
 You can execute the CLI tool using the following command:
-
+```sh
 node index.js
+```
 Or after linking it globally:
-
+```sh
 npm link
 motivate
-Running Tests
+```
+
+---
+
+## Running Tests
 To ensure the CLI tool functions correctly, unit tests are included using Jest.
 
-1. Run Tests
+### 1. Run Tests
+```sh
 npm test
-2. View Test Coverage (Optional)
+```
+
+### 2. View Test Coverage (Optional)
+```sh
 npm test -- --coverage
-GitHub Actions CI/CD Pipeline
+```
+
+---
+
+## GitHub Actions CI/CD Pipeline
 This project includes a CI/CD workflow using GitHub Actions.
 
-Workflow Triggers
+### Workflow Triggers
 The GitHub Actions workflow runs automatically on:
+- Push events to the `main` branch
+- Pull requests to the `main` branch
+- Manual workflow dispatch
 
-Push events to the main branch
-Pull requests to the main branch
-Manual workflow dispatch
-CI/CD Workflow Steps
-Checkout Repository – Clones the latest version of the code
-Set up Node.js – Configures the required Node.js environment
-Install Dependencies – Installs all necessary packages
-Run Tests – Executes unit tests to ensure code quality
-Publish to NPM (Optional) – Automatically publishes the package to NPM when a new release is created
-Publishing the CLI Tool to NPM (Optional)
+### CI/CD Workflow Steps
+1. **Checkout Repository** – Clones the latest version of the code
+2. **Set up Node.js** – Configures the required Node.js environment
+3. **Install Dependencies** – Installs all necessary packages
+4. **Run Tests** – Executes unit tests to ensure code quality
+5. **Publish to NPM** *(Optional)* – Automatically publishes the package to NPM when a new release is created
+
+---
+
+## Publishing the CLI Tool to NPM (Optional)
 To publish this CLI tool as an NPM package, follow these steps:
 
-1. Create an NPM Account
-If you don't have one, register at npmjs.com.
+### 1. Create an NPM Account
+If you don't have one, register at [npmjs.com](https://www.npmjs.com/).
 
-2. Login to NPM
+### 2. Login to NPM
+```sh
 npm login
-3. Generate an Authentication Token
+```
+
+### 3. Generate an Authentication Token
+```sh
 npm token create
+```
 Copy the generated token.
 
-4. Add NPM Token to GitHub Secrets
-Navigate to your repository on GitHub
-Go to Settings → Secrets and variables → Actions
-Click New Repository Secret
-Name it NPM_TOKEN and paste the generated token
-5. Create a GitHub Release
-To trigger the publishing workflow:
+### 4. Add NPM Token to GitHub Secrets
+- Navigate to your repository on GitHub
+- Go to **Settings** → **Secrets and variables** → **Actions**
+- Click **New Repository Secret**
+- Name it `NPM_TOKEN` and paste the generated token
 
-Go to the Releases section of your GitHub repository
-Click Draft a new release
-Tag the release version (e.g., v1.0.0)
-Click Publish release
+### 5. Create a GitHub Release
+To trigger the publishing workflow:
+- Go to the **Releases** section of your GitHub repository
+- Click **Draft a new release**
+- Tag the release version (e.g., `v1.0.0`)
+- Click **Publish release**
+
 This will trigger the GitHub Actions workflow to automatically publish the package to NPM.
 
-Contributing
+---
+
+## Contributing
 If you'd like to contribute:
+1. Fork this repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Make your changes and commit (`git commit -m "Added new feature"`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Open a Pull Request
 
-Fork this repository
-Create a new branch (git checkout -b feature-branch)
-Make your changes and commit (git commit -m "Added new feature")
-Push to the branch (git push origin feature-branch)
-Open a Pull Request
+---
 
-Contact
+## Contact
 For any questions or suggestions, feel free to reach out:
 Email: siya270223@outlook.com
