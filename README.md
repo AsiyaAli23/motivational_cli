@@ -42,7 +42,7 @@ npm (Node Package Manager)
 Git
 Installation and Usage
 1. Clone the Repository
-git clone https://github.com/nolet7/motivational-cli.git
+git clone https://github.com/AsiyaAli23/motivational-cli.git
 cd motivational-cli
 2. Install Dependencies
 npm install
